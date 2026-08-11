@@ -2,25 +2,81 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #111111;
+}
+
+/* the whole layout was designed and tuned at ~80% browser zoom on desktop —
+   bake that in so it looks the same regardless of the viewer's actual zoom */
+@media (min-width: 1024px) {
+  html {
+    zoom: 0.8;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-grotesk);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* accent blue, light to dark — accent-600 is the exact brand hex */
+  --color-accent-50: #eef3fa;
+  --color-accent-100: #dce7f5;
+  --color-accent-200: #b9cfeb;
+  --color-accent-300: #8fb0dd;
+  --color-accent-400: #5d8bcb;
+  --color-accent-500: #3569b7;
+  --color-accent-600: #2056ac;
+  --color-accent-700: #1a4589;
+  --color-accent-800: #15366b;
+  --color-accent-900: #10294f;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: #111111;
+  color: #ffffff;
+}
+
+.font-display {
+  font-family: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* marquee for the partners strip */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+/* 3d flip context for the split-flap headline animation */
+.flap-perspective {
+  perspective: 600px;
+}
+
+/* slow drifting glow for the footer's gradient mesh */
+@keyframes mesh-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(6%, -4%) scale(1.08);
+  }
+}
+
+.animate-mesh-drift {
+  animation: mesh-drift 14s ease-in-out infinite;
 }
