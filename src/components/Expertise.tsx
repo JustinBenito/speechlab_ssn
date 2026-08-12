@@ -1,88 +1,37 @@
-import type { ReactNode } from "react";
+import Image from "next/image";
 import { expertise } from "@/lib/data";
 import { Reveal } from "./Reveal";
 
-const icons: Record<string, ReactNode> = {
-  ASR: (
-    <path d="M4 10v4M8 6v12M12 3v18M16 6v12M20 10v4" strokeLinecap="round" />
-  ),
-  TTS: (
-    <>
-      <path d="M4 9v6h4l5 5V4L8 9H4Z" strokeLinejoin="round" />
-      <path d="M17 8a5 5 0 0 1 0 8" strokeLinecap="round" />
-    </>
-  ),
-  MT: (
-    <>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
-    </>
-  ),
-  ISL: (
-    <path
-      d="M7 12V6a1.5 1.5 0 0 1 3 0v5-3a1.5 1.5 0 0 1 3 0v3-2a1.5 1.5 0 0 1 3 0v3.5c0 3-2 5.5-5.5 5.5S6 16 6 13v-2a1.3 1.3 0 0 1 2.6-.4"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  ),
-};
+// Positions (% of the illustration's own box) and rotation for the flag
+// emoji scattered across the "Language & Translation" card, lifted 1:1 from
+// the Figma source (Frame 654 / Group 19, 385x192 box).
+const flags: { emoji: string; x: number; y: number; rotate: number }[] = [
+  { emoji: "🇺🇸", x: 49.87, y: 81.42, rotate: 0 },
+  { emoji: "🇮🇳", x: 33.8, y: 82.54, rotate: -83 },
+  { emoji: "🇷🇺", x: 38.73, y: 59.59, rotate: -40 },
+  { emoji: "🇦🇩", x: 49.87, y: 49.65, rotate: 0 },
+  { emoji: "🇦🇷", x: 61.06, y: 59.58, rotate: 51 },
+  { emoji: "🇧🇩", x: 66.02, y: 82.03, rotate: 89 },
+  { emoji: "🇧🇻", x: 77.4, y: 99.65, rotate: 106 },
+  { emoji: "🇦🇹", x: 78.7, y: 72.57, rotate: 81 },
+  { emoji: "🇦🇪", x: 72.21, y: 45.49, rotate: 52 },
+  { emoji: "🇯🇵", x: 59.82, y: 26.89, rotate: 25 },
+  { emoji: "🇨🇳", x: 45.24, y: 24.2, rotate: -7 },
+  { emoji: "🇰🇷", x: 30.89, y: 37.12, rotate: -35 },
+  { emoji: "🇧🇳", x: 22.67, y: 61.78, rotate: -65 },
+  { emoji: "🇱🇰", x: 21.37, y: 92.51, rotate: -95 },
+];
 
-function ExpertiseIcon({ tag, className }: { tag: string; className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      className={className ?? "h-5 w-5"}
-    >
-      {icons[tag]}
-    </svg>
-  );
-}
-
-type Variant = "light" | "dark" | "accent";
-
-const variants: Variant[] = ["light", "dark", "accent", "light"];
-const spans = ["md:col-span-2", "", "", "md:col-span-2"];
-
-const gridBg = {
-  backgroundImage:
-    "linear-gradient(to right, rgba(15,23,42,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(15,23,42,0.05) 1px, transparent 1px)",
-  backgroundSize: "28px 28px",
-};
-
-const shellByVariant: Record<Variant, string> = {
-  light:
-    "border border-white ring-1 ring-neutral-200/70 bg-gradient-to-br from-white to-accent-50/50 hover:ring-neutral-300",
-  dark: "border border-white/10 bg-neutral-900 hover:border-white/20",
-  accent:
-    "border border-white/10 bg-gradient-to-br from-accent-600 to-accent-700 hover:from-accent-500 hover:to-accent-700",
-};
-
-const iconByVariant: Record<Variant, string> = {
-  light: "bg-accent-50 text-accent-600",
-  dark: "bg-white/10 text-white",
-  accent: "bg-white/15 text-white",
-};
-
-const tagByVariant: Record<Variant, string> = {
-  light: "text-neutral-400",
-  dark: "text-white/40",
-  accent: "text-white/60",
-};
-
-const titleByVariant: Record<Variant, string> = {
-  light: "text-neutral-900",
-  dark: "text-white",
-  accent: "text-white",
-};
-
-const descByVariant: Record<Variant, string> = {
-  light: "text-neutral-600",
-  dark: "text-neutral-400",
-  accent: "text-white/75",
-};
+// Per-card layout: where it sits in the 3-col desktop grid, and its mobile
+// aspect ratio (matched to the exported illustration's own viewBox).
+const layout = [
+  { grid: "md:col-start-1 md:col-span-2 md:row-start-1", aspect: "aspect-[33/8]" },
+  { grid: "md:col-start-3 md:row-start-1 md:row-span-2", aspect: "aspect-[387/520]" },
+  { grid: "md:col-start-1 md:row-start-2", aspect: "aspect-[385/192]" },
+  { grid: "md:col-start-2 md:row-start-2", aspect: "aspect-[385/192]" },
+  { grid: "md:col-start-1 md:row-start-3", aspect: "aspect-[385/192]" },
+  { grid: "md:col-start-2 md:col-span-2 md:row-start-3", aspect: "aspect-[33/8]" },
+];
 
 export function Expertise() {
   return (
@@ -98,39 +47,53 @@ export function Expertise() {
         </h2>
       </Reveal>
 
-      <div className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-2 md:auto-rows-[220px]">
+      <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3 md:[grid-template-rows:repeat(3,minmax(300px,auto))]">
         {expertise.map((item, i) => {
-          const variant = variants[i] ?? "light";
+          const { grid, aspect } = layout[i] ?? layout[0];
+          const isLanguageCard = item.tag === "MT";
+
           return (
             <Reveal
               key={item.title}
               index={i}
-              className={`group relative flex flex-col overflow-hidden rounded-2xl p-7 shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-all duration-300 hover:shadow-[0_8px_24px_-8px_rgba(15,23,42,0.12)] ${shellByVariant[variant]} ${spans[i] ?? ""}`}
+              className={`group relative flex flex-col overflow-hidden rounded-xl border border-black/10 bg-white shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-shadow duration-300 hover:shadow-[0_8px_24px_-8px_rgba(15,23,42,0.12)] ${grid}`}
             >
-              {variant === "light" && (
-                <div
-                  className="pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,black,transparent_75%)]"
-                  style={gridBg}
-                />
-              )}
+              <div
+                className={`relative min-h-0 shrink-0 overflow-hidden bg-[#FDFDFD] ${aspect} md:aspect-auto md:flex-1`}
+                style={{ containerType: "inline-size" }}
+              >
+                {item.illustration && (
+                  <Image
+                    src={item.illustration}
+                    alt=""
+                    fill
+                    sizes="(min-width: 768px) 40vw, 100vw"
+                    className="object-cover"
+                  />
+                )}
+                {isLanguageCard &&
+                  flags.map((f, fi) => (
+                    <span
+                      key={fi}
+                      aria-hidden
+                      className="pointer-events-none absolute select-none leading-none"
+                      style={{
+                        left: `${f.x}%`,
+                        top: `${f.y}%`,
+                        fontSize: "5.2cqw",
+                        transform: `translate(-50%, -50%) rotate(${f.rotate}deg)`,
+                      }}
+                    >
+                      {f.emoji}
+                    </span>
+                  ))}
+              </div>
 
-              <div className="relative">
-                <div
-                  className={`flex h-9 w-9 items-center justify-center rounded-lg ${iconByVariant[variant]}`}
-                >
-                  <ExpertiseIcon tag={item.tag} />
-                </div>
-                <span
-                  className={`font-display mt-4 block text-xs uppercase tracking-[0.15em] ${tagByVariant[variant]}`}
-                >
-                  {item.tag}
-                </span>
-                <h3
-                  className={`font-display mt-2 text-lg font-medium ${titleByVariant[variant]}`}
-                >
+              <div className="relative shrink-0 bg-white p-5">
+                <h3 className="font-display text-lg font-semibold text-neutral-900">
                   {item.title}
                 </h3>
-                <p className={`mt-2 text-sm leading-relaxed ${descByVariant[variant]}`}>
+                <p className="mt-2 text-xs leading-relaxed text-neutral-500">
                   {item.description}
                 </p>
               </div>

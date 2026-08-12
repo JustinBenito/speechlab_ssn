@@ -46,27 +46,38 @@ export const heroCategories = [
 export const expertise = [
   {
     tag: "ASR",
-    title: "Speech recognition",
+    title: "Speech Recognition",
     description:
-      "Automatic speech recognition, multi-dialect ASR, and silent speech recognition for Indian languages.",
+      "Automatic Speech Recognition, multi-dialect ASR, and silent speech recognition aim to develop accurate, inclusive speech technologies capable of understanding diverse Indian languages, dialects, accents, and communication patterns.",
+    illustration: "/bento/speech-recognition.svg",
   },
   {
     tag: "TTS",
-    title: "Speech synthesis & prosody",
+    title: "Speech Synthesis & Prosody",
     description:
       "Text-to-speech synthesis, prosody modelling, and voice conversion tuned for natural, expressive speech.",
+    illustration: "/bento/speech-synthesis-mic.svg",
   },
   {
     tag: "MT",
-    title: "Language & translation",
+    title: "Language & Translation",
     description:
-      "Machine translation systems built for the linguistic structure of Indian languages.",
+      "Machine translation systems built for the linguistic structure of Indian Languages.",
+    illustration: "/bento/language-translation.svg",
   },
   {
     tag: "ISL",
-    title: "Assistive speech technology",
+    title: "Assistive Speech technology",
     description:
       "Speech-enabled assistive devices for cerebral palsy, autism spectrum disorder, and speech-input aids.",
+    illustration: "/bento/assistive-speech.svg",
+  },
+  {
+    tag: "SIG",
+    title: "Signal Processing & Audio",
+    description:
+      "Speech enhancement, music signal processing, and array microphone-based speech analysis focus on improving audio quality, separating speech and music signals, reducing noise, and enabling accurate spatial audio analysis.",
+    illustration: "/bento/processor.svg",
   },
 ];
 
