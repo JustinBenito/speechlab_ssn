@@ -1,4 +1,4 @@
-<svg width="792" height="192" viewBox="0 0 792 192" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="792" height="192" viewBox="0 0 792 192" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style>.flow-path{fill:none;stroke:url(#electric-flow);stroke-linecap:round}.flow-a{stroke-width:1.6;stroke-dasharray:14 260;animation:flow-dash 4.6s linear infinite}.flow-b{stroke-width:1.6;stroke-dasharray:14 260;animation:flow-dash 4.6s linear infinite;animation-delay:-2.3s}.flow-c{stroke-width:1.3;stroke-dasharray:10 150;animation:flow-dash 3.2s linear infinite}.flow-d{stroke-width:1.3;stroke-dasharray:10 150;animation:flow-dash 3.2s linear infinite;animation-delay:-1.6s}@keyframes flow-dash{to{stroke-dashoffset:-1200}}</style><defs><linearGradient id="electric-flow" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#4AAFED" stop-opacity="0"/><stop offset="50%" stop-color="#105FCD" stop-opacity="0.95"/><stop offset="100%" stop-color="#9CA3AF" stop-opacity="0"/></linearGradient></defs>
 <rect width="792" height="192" fill="#1E1E1E"/>
 <g id="SSN - Bento">
 <rect width="1280" height="1037" transform="translate(-447.667 -692.333)" fill="white"/>
@@ -10,11 +10,17 @@
 <g id="Frame 81">
 <g id="Group 1">
 <path id="Vector 2" d="M476.333 108.667C600.13 108.667 670.037 157.667 793.833 157.667" stroke="black" stroke-opacity="0.1"/>
+<path class="flow-path flow-a" d="M476.333 108.667C600.13 108.667 670.037 157.667 793.833 157.667"/>
 <path id="Vector 3" d="M476.333 83.6667C600.13 83.6667 670.037 34.6667 793.833 34.6667" stroke="black" stroke-opacity="0.1"/>
+<path class="flow-path flow-b" d="M476.333 83.6667C600.13 83.6667 670.037 34.6667 793.833 34.6667"/>
 <path id="Vector 4" d="M315.833 108.667C192.037 108.667 122.13 157.667 -1.66666 157.667" stroke="black" stroke-opacity="0.1"/>
+<path class="flow-path flow-b" d="M315.833 108.667C192.037 108.667 122.13 157.667 -1.66666 157.667"/>
 <path id="Vector 5" d="M315.833 83.6667C192.037 83.6667 122.13 34.6667 -1.66666 34.6667" stroke="black" stroke-opacity="0.1"/>
+<path class="flow-path flow-a" d="M315.833 83.6667C192.037 83.6667 122.13 34.6667 -1.66666 34.6667"/>
 <path id="Vector 6" d="M357.333 60.1667V-12.3333M382.833 60.1667V-12.3333M408.333 60.1667V-12.3333M434.333 60.1667V-12.3333M460.333 60.1667C460.333 -7.33331 559.333 26.4797 559.333 -1.83331M331.333 60.1667C331.333 -7.33331 231.333 26.4797 231.333 -1.83331" stroke="black" stroke-opacity="0.1"/>
+<path class="flow-path flow-c" d="M357.333 60.1667V-12.3333M382.833 60.1667V-12.3333M408.333 60.1667V-12.3333M434.333 60.1667V-12.3333M460.333 60.1667C460.333 -7.33331 559.333 26.4797 559.333 -1.83331M331.333 60.1667C331.333 -7.33331 231.333 26.4797 231.333 -1.83331"/>
 <path id="Vector 7" d="M357.333 131.667V204.167M382.833 131.667V204.167M408.333 131.667V204.167M434.333 131.667V204.167M460.333 131.667C460.333 199.167 559.333 165.354 559.333 193.667M331.333 131.667C331.333 199.167 231.333 165.354 231.333 193.667" stroke="black" stroke-opacity="0.1"/>
+<path class="flow-path flow-d" d="M357.333 131.667V204.167M382.833 131.667V204.167M408.333 131.667V204.167M434.333 131.667V204.167M460.333 131.667C460.333 199.167 559.333 165.354 559.333 193.667M331.333 131.667C331.333 199.167 231.333 165.354 231.333 193.667"/>
 </g>
 <g id="Frame 77">
 <g id="Rectangle 2" filter="url(#filter0_ii_0_1)">

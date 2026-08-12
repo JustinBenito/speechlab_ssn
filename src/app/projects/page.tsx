@@ -38,7 +38,7 @@ export default function ProjectsPage() {
               key={project.slug}
               index={i % 4}
               id={project.slug}
-              className="scroll-mt-28 py-10"
+              className="scroll-mt-36 py-10"
             >
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <h2 className="font-display max-w-2xl text-xl font-medium text-neutral-900">

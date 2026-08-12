@@ -1,6 +1,9 @@
 import { mission, vision } from "@/lib/data";
 import { Reveal } from "./Reveal";
 import { AsciiCursor } from "./AsciiCursor";
+import { HighlightedText } from "./HighlightedText";
+
+const HIGHLIGHT_PHRASE = "reduce communication barriers";
 
 export function Thesis() {
   return (
@@ -16,7 +19,7 @@ export function Thesis() {
             </Reveal>
             <Reveal index={1}>
               <p className="font-display mt-6 text-2xl font-medium leading-snug tracking-tight text-neutral-900 md:text-3xl">
-                &ldquo;{vision}&rdquo;
+                &ldquo;<HighlightedText text={vision} phrase={HIGHLIGHT_PHRASE} />&rdquo;
               </p>
             </Reveal>
           </div>

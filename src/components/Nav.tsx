@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { nav, contactUrl } from "@/lib/data";
 import { Button } from "./Button";
+import { TextureButton } from "./ui/texture-button";
 
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +27,7 @@ export function Nav() {
 
   return (
     <>
-    <header className="fixed top-0 inset-x-0 z-50 border-b border-neutral-200/70 bg-white/80 backdrop-blur-md">
+    <header className="fixed top-8 inset-x-0 z-50 border-b border-neutral-200/70 bg-white/80 backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6 md:h-24">
         <Link href="/" className="flex items-center">
           <Image
@@ -35,7 +36,7 @@ export function Nav() {
             width={1672}
             height={941}
             priority
-            className="h-14 w-auto bg-none md:h-20"
+            className="h-10 w-auto bg-none md:h-12"
           />
         </Link>
 
@@ -61,14 +62,15 @@ export function Nav() {
           Contact
         </Button>
 
-        <button
+        <TextureButton
           type="button"
           onClick={() => setIsOpen(true)}
           aria-label="Open menu"
-          className="flex items-center justify-center rounded-full border border-black/15 bg-white/60 p-2.5 text-neutral-900 transition-colors hover:bg-neutral-100 md:hidden"
+          variant="icon"
+          className="md:hidden"
         >
           <HamburgerMenuIcon className="h-5 w-5" />
-        </button>
+        </TextureButton>
       </div>
     </header>
 
@@ -96,14 +98,14 @@ export function Nav() {
               >
                 <div className="flex items-center justify-between border-b border-neutral-200/70 px-6 py-5">
                   <span className="text-sm font-medium text-neutral-900">Menu</span>
-                  <button
+                  <TextureButton
                     type="button"
                     onClick={() => setIsOpen(false)}
                     aria-label="Close menu"
-                    className="flex items-center justify-center rounded-full border border-black/15 bg-white/60 p-2 text-neutral-900 transition-colors hover:bg-neutral-100"
+                    variant="icon"
                   >
                     <Cross1Icon className="h-4 w-4" />
-                  </button>
+                  </TextureButton>
                 </div>
 
                 <nav className="flex flex-1 flex-col gap-1 px-4 py-6">

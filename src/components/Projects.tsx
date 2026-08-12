@@ -1,18 +1,21 @@
+import Image from "next/image";
 import { latestProjects } from "@/lib/projects";
 import { Reveal } from "./Reveal";
 import { Button } from "./Button";
 
-const artStyles = [
-  "bg-[radial-gradient(circle_at_30%_20%,rgba(34,211,238,0.65)_0%,transparent_45%),radial-gradient(circle_at_75%_70%,rgba(59,130,246,0.55)_0%,transparent_55%),linear-gradient(135deg,#0f172a_0%,#0f766e_50%,#1d4ed8_100%)]",
-  "bg-[radial-gradient(circle_at_20%_20%,rgba(125,211,252,0.8)_0%,transparent_35%),radial-gradient(circle_at_80%_30%,rgba(16,185,129,0.45)_0%,transparent_45%),linear-gradient(135deg,#0b1120_0%,#164e63_45%,#0f766e_100%)] [mask-image:radial-gradient(circle,black_10%,transparent_70%)]",
-  "bg-[linear-gradient(160deg,#0E2647_0%,#06b6d4_45%,#2dd4bf_100%)]",
-];
+const artImages = ["/blue-imgs/1b.png", "/blue-imgs/2b.png", "/blue-imgs/3b.png"];
 
 function ProjectArt({ index }: { index: number }) {
   return (
     <div className="relative h-40 w-full overflow-hidden bg-accent-900">
-      <div className={`absolute inset-0 ${artStyles[index % artStyles.length]}`} />
-      <div className="absolute inset-0 bg-black/10" />
+      <Image
+        src={artImages[index % artImages.length]}
+        alt=""
+        fill
+        sizes="(min-width: 768px) 33vw, 100vw"
+        className="object-cover"
+        priority={index < 3}
+      />
     </div>
   );
 }

@@ -6,8 +6,8 @@ import { Reveal } from "./Reveal";
 // emoji scattered across the "Language & Translation" card, lifted 1:1 from
 // the Figma source (Frame 654 / Group 19, 385x192 box).
 const flags: { emoji: string; x: number; y: number; rotate: number }[] = [
-  { emoji: "🇺🇸", x: 49.87, y: 81.42, rotate: 0 },
-  { emoji: "🇮🇳", x: 33.8, y: 82.54, rotate: -83 },
+  { emoji: "🇮🇳", x: 49.87, y: 81.42, rotate: 0 },
+  { emoji: "🇺🇸", x: 33.8, y: 82.54, rotate: -83 },
   { emoji: "🇷🇺", x: 38.73, y: 59.59, rotate: -40 },
   { emoji: "🇦🇩", x: 49.87, y: 49.65, rotate: 0 },
   { emoji: "🇦🇷", x: 61.06, y: 59.58, rotate: 51 },
@@ -29,8 +29,7 @@ const layout = [
   { grid: "md:col-start-3 md:row-start-1 md:row-span-2", aspect: "aspect-[387/520]" },
   { grid: "md:col-start-1 md:row-start-2", aspect: "aspect-[385/192]" },
   { grid: "md:col-start-2 md:row-start-2", aspect: "aspect-[385/192]" },
-  { grid: "md:col-start-1 md:row-start-3", aspect: "aspect-[385/192]" },
-  { grid: "md:col-start-2 md:col-span-2 md:row-start-3", aspect: "aspect-[33/8]" },
+  { grid: "md:col-start-1 md:col-span-3 md:row-start-3", aspect: "aspect-[33/8]" },
 ];
 
 export function Expertise() {
