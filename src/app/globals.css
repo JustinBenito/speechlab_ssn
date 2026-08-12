@@ -80,3 +80,46 @@ body {
 .animate-mesh-drift {
   animation: mesh-drift 14s ease-in-out infinite;
 }
+
+/* drifting light-leak blobs for the People section */
+@keyframes light-leak-a {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(8%, 6%) scale(1.15);
+  }
+}
+
+@keyframes light-leak-b {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-6%, -8%) scale(1.1);
+  }
+}
+
+.animate-light-leak-a {
+  animation: light-leak-a 12s ease-in-out infinite;
+}
+
+.animate-light-leak-b {
+  animation: light-leak-b 16s ease-in-out infinite;
+}
+
+/* slow-spinning god rays for the People section */
+@keyframes godrays-spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.animate-godrays {
+  animation: godrays-spin 70s linear infinite;
+}

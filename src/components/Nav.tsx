@@ -1,16 +1,21 @@
 import Link from "next/link";
+import Image from "next/image";
 import { nav, contactUrl } from "@/lib/data";
 import { Button } from "./Button";
 
 export function Nav() {
   return (
     <header className="fixed top-0 inset-x-0 z-50 border-b border-neutral-200/70 bg-white/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="flex items-baseline gap-2">
-          <span className="font-display text-lg font-semibold tracking-tight">
-            Speech Lab
-          </span>
-          <span className="text-xs text-neutral-400">SSN</span>
+      <div className="mx-auto flex h-24 max-w-6xl items-center justify-between px-6">
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/logo.png"
+            alt="Speech Lab SSN"
+            width={1672}
+            height={941}
+            priority
+            className="h-20 w-auto"
+          />
         </Link>
 
         <nav className="hidden items-center gap-7 md:flex">

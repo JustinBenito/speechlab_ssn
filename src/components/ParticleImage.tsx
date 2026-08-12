@@ -83,6 +83,9 @@ export function ParticleImage({
   const animRef = useRef<number | null>(null);
   const animStartTimeRef = useRef(0);
   const animTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const introDoneRef = useRef(false);
+  const introPlayingRef = useRef(false);
+  const introTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const startAnim = (newState: "assembling" | "scattering") => {
     const { particles } = sceneRef.current;
@@ -155,6 +158,22 @@ export function ParticleImage({
         });
         animStateRef.current = "idle";
         sceneRef.current = { particles };
+
+        // play the assemble/scatter cycle once on load, regardless of the
+        // cursor, so first-time visitors see the image before it hides
+        if (!introDoneRef.current) {
+          introDoneRef.current = true;
+          introPlayingRef.current = true;
+          introTimeoutRef.current = setTimeout(() => {
+            startAnim("assembling");
+            introTimeoutRef.current = setTimeout(() => {
+              startAnim("scattering");
+              introTimeoutRef.current = setTimeout(() => {
+                introPlayingRef.current = false;
+              }, TRANSITION_MS);
+            }, TRANSITION_MS + 700);
+          }, 150);
+        }
       };
       img.src = image;
     };
@@ -185,7 +204,10 @@ export function ParticleImage({
     const rect = el.getBoundingClientRect();
     measure(rect.width, rect.height);
 
-    return () => ro.disconnect();
+    return () => {
+      ro.disconnect();
+      if (introTimeoutRef.current) clearTimeout(introTimeoutRef.current);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [image]);
 
@@ -357,6 +379,8 @@ export function ParticleImage({
       }
       prevMouseRef.current = { x: mx, y: my };
       mouseRef.current = { x: mx, y: my, active: inside };
+
+      if (introPlayingRef.current) return;
 
       const s = animStateRef.current;
       if (inside) {

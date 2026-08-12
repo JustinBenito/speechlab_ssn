@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { Reveal } from "./Reveal";
 
-export function PageHeroImage({ alt }: { alt: string }) {
+export function PageHeroImage({ src = "/aboutus.png", alt }: { src?: string; alt: string }) {
   return (
     <Reveal>
       <div className="relative aspect-[21/9] overflow-hidden rounded-2xl">
         <Image
-          src="/aboutus.png"
+          src={src}
           alt={alt}
           fill
           priority

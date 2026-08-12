@@ -43,10 +43,10 @@ export function Footer() {
       <div className="relative overflow-hidden rounded-3xl">
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-[#141414]"
+          className="absolute inset-0 bg-[#0d1b30]"
           style={{
             backgroundImage:
-              "radial-gradient(at 12% 18%, #3a3a3a 0, transparent 55%), radial-gradient(at 82% 8%, #8a8a8a 0, transparent 50%), radial-gradient(at 75% 85%, #cfcfcf 0, transparent 55%), radial-gradient(at 15% 90%, #050505 0, transparent 55%)",
+              "radial-gradient(at 12% 18%, #1a4589 0, transparent 55%), radial-gradient(at 82% 8%, #3569b7 0, transparent 50%), radial-gradient(at 75% 85%, #5d8bcb 0, transparent 55%), radial-gradient(at 15% 90%, #10294f 0, transparent 55%)",
           }}
         />
         <div
@@ -54,7 +54,7 @@ export function Footer() {
           className="animate-mesh-drift absolute -inset-1/4 opacity-60"
           style={{
             backgroundImage:
-              "radial-gradient(circle at center, rgba(255,255,255,0.25), transparent 60%)",
+              "radial-gradient(circle at center, rgba(93,139,203,0.35), transparent 60%)",
           }}
         />
 

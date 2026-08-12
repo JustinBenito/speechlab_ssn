@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const COLS = 130;
-const ROWS = 34;
+const ROWS = 16;
 const TICK_MS = 400;
 const STUCK_CHANCE = 0.035;
-const MOUNTAIN_MAX = 8;
+const MOUNTAIN_MAX = 4;
 
 type Cells = Array<[number, number]>;
 

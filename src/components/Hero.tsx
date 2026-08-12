@@ -18,11 +18,6 @@ export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden pt-40 pb-20 md:pt-48 md:pb-28">
       <div className="mx-auto max-w-6xl px-6">
-        <Reveal>
-          <p className="font-display text-sm uppercase tracking-[0.2em] text-neutral-400">
-            Speech Lab &middot; SSN College of Engineering
-          </p>
-        </Reveal>
 
         <div ref={textRef} className="relative">
           <div className="pointer-events-auto absolute top-0 right-0 hidden h-72 w-102 lg:block xl:h-[26rem] xl:w-[26rem]">

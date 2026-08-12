@@ -97,13 +97,12 @@ export const about = {
 export const funders = [
   { name: "MeitY", logo: "/funders/meity.svg" },
   { name: "IIT Madras", logo: "/funders/iit-madras.svg" },
-  { name: "IIT Dharwad", initials: "IITDh" },
+  { name: "IIT Dharwad", logo: "/funders/iit-dharwad.svg" },
   { name: "DST – TIDE", logo: "/funders/dst.png" },
-  { name: "AICTE", initials: "AICTE" },
-  { name: "Tamil Virtual Academy", initials: "TVA" },
-  { name: "SERB", initials: "SERB" },
+  { name: "AICTE", logo: "/funders/aicte.png" },
+  { name: "Tamil Virtual Academy", logo: "/funders/tva.jpg" },
   { name: "HCL Technologies", logo: "/funders/hcltech.svg" },
-  { name: "Shiv Nadar University", initials: "SNU" },
+  { name: "Shiv Nadar University", logo: "/funders/snu.jpg" },
 ];
 
 export const contactUrl = "https://cal.com/justinbenito";

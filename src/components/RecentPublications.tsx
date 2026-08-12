@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Reveal } from "./Reveal";
 import { Button } from "./Button";
@@ -25,6 +25,13 @@ export function RecentPublications() {
   const [active, setActive] = useState(0);
   const current = recentHighlights[active];
   const next = recentHighlights[(active + 1) % recentHighlights.length];
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setActive((i) => (i + 1) % recentHighlights.length);
+    }, 3000);
+    return () => clearInterval(id);
+  }, [active]);
 
   return (
     <section className="mx-auto max-w-6xl px-6 py-24 md:py-32">

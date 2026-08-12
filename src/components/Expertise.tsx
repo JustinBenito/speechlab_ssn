@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import { expertise } from "@/lib/data";
 import { Reveal } from "./Reveal";
-import { BentoIllustration } from "./BentoIllustration";
 
 const icons: Record<string, ReactNode> = {
   ASR: (
@@ -28,21 +27,62 @@ const icons: Record<string, ReactNode> = {
   ),
 };
 
-function ExpertiseIcon({ tag }: { tag: string }) {
+function ExpertiseIcon({ tag, className }: { tag: string; className?: string }) {
   return (
     <svg
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.6"
-      className="h-5 w-5"
+      className={className ?? "h-5 w-5"}
     >
       {icons[tag]}
     </svg>
   );
 }
 
+type Variant = "light" | "dark" | "accent";
+
+const variants: Variant[] = ["light", "dark", "accent", "light"];
 const spans = ["md:col-span-2", "", "", "md:col-span-2"];
+
+const gridBg = {
+  backgroundImage:
+    "linear-gradient(to right, rgba(15,23,42,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(15,23,42,0.05) 1px, transparent 1px)",
+  backgroundSize: "28px 28px",
+};
+
+const shellByVariant: Record<Variant, string> = {
+  light:
+    "border border-white ring-1 ring-neutral-200/70 bg-gradient-to-br from-white to-accent-50/50 hover:ring-neutral-300",
+  dark: "border border-white/10 bg-neutral-900 hover:border-white/20",
+  accent:
+    "border border-white/10 bg-gradient-to-br from-accent-600 to-accent-700 hover:from-accent-500 hover:to-accent-700",
+};
+
+const iconByVariant: Record<Variant, string> = {
+  light: "bg-accent-50 text-accent-600",
+  dark: "bg-white/10 text-white",
+  accent: "bg-white/15 text-white",
+};
+
+const tagByVariant: Record<Variant, string> = {
+  light: "text-neutral-400",
+  dark: "text-white/40",
+  accent: "text-white/60",
+};
+
+const titleByVariant: Record<Variant, string> = {
+  light: "text-neutral-900",
+  dark: "text-white",
+  accent: "text-white",
+};
+
+const descByVariant: Record<Variant, string> = {
+  light: "text-neutral-600",
+  dark: "text-neutral-400",
+  accent: "text-white/75",
+};
 
 export function Expertise() {
   return (
@@ -58,30 +98,45 @@ export function Expertise() {
         </h2>
       </Reveal>
 
-      <div className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-2 md:auto-rows-[240px]">
-        {expertise.map((item, i) => (
-          <Reveal
-            key={item.title}
-            index={i}
-            className={`group flex flex-col rounded-2xl border border-neutral-200 bg-white p-7 shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-all duration-300 hover:border-neutral-300 hover:shadow-[0_4px_16px_-4px_rgba(15,23,42,0.08)] ${spans[i] ?? ""}`}
-          >
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent-50 text-accent-600">
-              <ExpertiseIcon tag={item.tag} />
-            </div>
-            <span className="font-display mt-4 text-xs uppercase tracking-[0.15em] text-neutral-400">
-              {item.tag}
-            </span>
-            <h3 className="font-display mt-2 text-lg font-medium text-neutral-900">
-              {item.title}
-            </h3>
-            <p className="mt-2 text-sm leading-relaxed text-neutral-600">
-              {item.description}
-            </p>
-            <div className="mt-auto pt-4">
-              <BentoIllustration tag={item.tag} />
-            </div>
-          </Reveal>
-        ))}
+      <div className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-2 md:auto-rows-[220px]">
+        {expertise.map((item, i) => {
+          const variant = variants[i] ?? "light";
+          return (
+            <Reveal
+              key={item.title}
+              index={i}
+              className={`group relative flex flex-col overflow-hidden rounded-2xl p-7 shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-all duration-300 hover:shadow-[0_8px_24px_-8px_rgba(15,23,42,0.12)] ${shellByVariant[variant]} ${spans[i] ?? ""}`}
+            >
+              {variant === "light" && (
+                <div
+                  className="pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,black,transparent_75%)]"
+                  style={gridBg}
+                />
+              )}
+
+              <div className="relative">
+                <div
+                  className={`flex h-9 w-9 items-center justify-center rounded-lg ${iconByVariant[variant]}`}
+                >
+                  <ExpertiseIcon tag={item.tag} />
+                </div>
+                <span
+                  className={`font-display mt-4 block text-xs uppercase tracking-[0.15em] ${tagByVariant[variant]}`}
+                >
+                  {item.tag}
+                </span>
+                <h3
+                  className={`font-display mt-2 text-lg font-medium ${titleByVariant[variant]}`}
+                >
+                  {item.title}
+                </h3>
+                <p className={`mt-2 text-sm leading-relaxed ${descByVariant[variant]}`}>
+                  {item.description}
+                </p>
+              </div>
+            </Reveal>
+          );
+        })}
       </div>
     </section>
   );

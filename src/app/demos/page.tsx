@@ -13,7 +13,7 @@ export default function DemosPage() {
   return (
     <div className="pt-36 pb-24 md:pt-44 md:pb-32">
       <div className="mx-auto max-w-4xl px-6">
-        <PageHeroImage alt="Speech Lab demos" />
+        <PageHeroImage src="/demos.png" alt="Speech Lab demos" />
 
         <Reveal className="mt-10">
           <p className="font-display text-sm uppercase tracking-[0.2em] text-neutral-400">

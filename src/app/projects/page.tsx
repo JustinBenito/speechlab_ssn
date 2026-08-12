@@ -13,7 +13,7 @@ export default function ProjectsPage() {
   return (
     <div className="mx-auto min-h-screen max-w-4xl border-x border-dashed border-neutral-200 pt-36 pb-24 md:pt-44 md:pb-32">
       <div className="px-6 md:px-10">
-        <PageHeroImage alt="Speech Lab funded projects" />
+        <PageHeroImage src="/research.png" alt="Speech Lab funded projects" />
 
         <Reveal index={1} className="mt-10">
           <p className="font-display text-sm uppercase tracking-[0.2em] text-neutral-400">

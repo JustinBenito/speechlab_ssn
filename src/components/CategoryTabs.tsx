@@ -73,7 +73,7 @@ export function CategoryTabs() {
         </div>
       </div>
 
-      <div className="relative mt-8 h-44 overflow-hidden rounded-2xl md:h-52">
+      <div className="relative mt-8 h-[22rem] overflow-hidden rounded-2xl md:h-[26rem]">
         <div className="absolute inset-0 bg-gradient-to-br from-accent-600 via-accent-500 to-accent-800">
           <div className="absolute -left-10 -top-16 h-56 w-56 rounded-full bg-accent-300/40 blur-3xl" />
           <div className="absolute -bottom-16 -right-10 h-56 w-56 rounded-full bg-accent-200/30 blur-3xl" />
